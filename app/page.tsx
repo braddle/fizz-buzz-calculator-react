@@ -1,7 +1,10 @@
 export const metadata = {
-  title: "App Router",
+  title: "Fizz Buzz Calculator",
 };
 
 export default function Page() {
-  return <h1>App Router</h1>;
+  return <div>
+    <h1>Fizz Buzz Calculator</h1>
+    <h2>Coming Soon!</h2>
+  </div>;
 }
