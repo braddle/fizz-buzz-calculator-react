@@ -5,8 +5,10 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watchAll",
-    "test:acceptance": "cypress run",
-    "test:acceptance:ui": "cypress open",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test:acceptance": "start-server-and-test start http://localhost:3000 cy:run",
+    "test:acceptance:ui": "start-server-and-test start http://localhost:3000 cy:open",
     "test:ci": "jest --ci",
     "lint": "eslint app",
     "lint:fix": "eslint --fix app"

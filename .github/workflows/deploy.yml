@@ -14,8 +14,12 @@ jobs:
         run: npm ci
       - name: Linting
         run: npm run lint
-      - name: test
+      - name: unit tests
         run: npm run test:ci
+      - name: build
+        run: npm run build
+      - name: acceptance tests
+        run: npm run test:acceptance
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:

@@ -1,17 +1,16 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import assert from "node:assert";
+
+let featureFlag = false
 
 Given('the arrived feature flag is off', function () {
-    // Write code here that turns the phrase above into concrete actions
+    featureFlag = false;
 });
 
 When('I check the home page', function () {
     cy.visit("/")
 });
 
-Then('I see that the FizzBuzz Calculator is Coming Soon', function () {
-    // Write code here that turns the phrase above into concrete actions
-    cy.contains('h1', 'Fizz Buzz Calculator');
-    cy.contains('h2', 'Coming Soon');
+Then("I see that the Leap Year Calculator is Coming Soon", function () {
+    cy.contains('h1', 'Leap Year Calculator');
+    cy.contains('h2', 'Coming Soon');;
 });
-
