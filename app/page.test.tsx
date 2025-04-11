@@ -1,10 +1,12 @@
 /**
  * @jest-environment jsdom
  */
-// import { render, screen } from "@testing-library/react";
-// import Page from "./page";
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import { render, screen } from "@testing-library/react";
+import Page from "./page";
 
-// it("App Router: Works with Server Components", () => {
-//   render(<Page />);
-//   expect(screen.getByText("heading")).toHaveTextContent("App Router");
-// });
+it("App Router: Works with Server Components", () => {
+  render(<Page />);
+  expect(screen.getByText("Leap Year Calculator")).toBeVisible();
+  expect(screen.getByText("Coming Soon!")).toBeVisible();
+});
