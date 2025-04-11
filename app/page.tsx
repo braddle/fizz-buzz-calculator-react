@@ -16,7 +16,10 @@ export default function Page() {
 
   let content = <h2>Coming Soon!</h2>;
 
-  if (searchParams !== null && "on" == searchParams!.get("leapYearCalculator")) {
+  if (
+    searchParams !== null &&
+    "on" == searchParams!.get("leapYearCalculator")
+  ) {
     content = (
       <div>
         {leapYear && <h2>{leapYear}</h2>}
