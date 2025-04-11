@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
-
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 export default function Page() {
   const searchParams = useSearchParams();
   const [leapYear, setLeapYear] = useState<string | null>(null);
