@@ -1,12 +1,35 @@
-export const metadata = {
-  title: "Fizz Buzz Calculator",
-};
+'use client'
+import { useSearchParams } from 'next/navigation'
+import {FormEvent, useState} from "react";
 
 export default function Page() {
-  return (
-    <div>
-      <h1>Leap Year Calculator</h1>
-      <h2>Coming Soon!</h2>
-    </div>
-  );
+    const searchParams = useSearchParams()
+    const [leapYear, setLeapYear] = useState<String|null>(null);
+
+    async function leapYearSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+
+        //const formData = new FormData(event.currentTarget)
+
+        setLeapYear("is a leap year")
+    }
+
+    let content = <h2>Coming Soon!</h2>
+
+   if ("on" == searchParams!.get('leapYearCalculator')) {
+       content =  <div>
+           {leapYear && <h2>{leapYear}</h2>}
+           <form className="leap-year-form" onSubmit={leapYearSubmit}>
+               <input type="number" id="year_field"/>
+               <input type="submit"/>
+           </form>
+       </div>
+   }
+
+    return (
+      <div>
+        <h1>Leap Year Calculator</h1>
+        {content}
+      </div>
+    );
 }
