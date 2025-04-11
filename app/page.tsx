@@ -1,8 +1,11 @@
 "use client";
+
 import { useSearchParams } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, Suspense, useState } from "react";
+
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-export default function Page() {
+
+function Content() {
   const searchParams = useSearchParams();
   const [leapYear, setLeapYear] = useState<string | null>(null);
 
@@ -31,10 +34,16 @@ export default function Page() {
     );
   }
 
+  return content;
+}
+
+export default function Page() {
   return (
-    <div>
-      <h1>Leap Year Calculator</h1>
-      {content}
-    </div>
+    <Suspense>
+      <div>
+        <h1>Leap Year Calculator</h1>
+        <Content />
+      </div>
+    </Suspense>
   );
 }
